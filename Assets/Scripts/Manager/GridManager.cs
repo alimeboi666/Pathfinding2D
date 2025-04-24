@@ -10,7 +10,6 @@ public class GridManager : MonoBehaviour
     [SerializeField] private int height = 10;
     [Range(0, 1), SerializeField] private float spacing = 0.1f;
     [Range(0, 2), SerializeField] private float cellSize = 0.1f;
-    [Range(0, 1), SerializeField] private float ratioProp;
     [SerializeField] private Cell cellPrefab;
     [SerializeField] private Transform gridParent;
     
@@ -37,7 +36,7 @@ public class GridManager : MonoBehaviour
     public void Init()
     {
         CalculateCellSizeToFitScreen();
-        grid = new Grid(width, height, ratioProp);
+        grid = new Grid(width, height);
         grid.GenerateRandomMap();
         ResizePoolIfNeeded(); 
         cellObjects = new Cell[width, height];
@@ -166,11 +165,11 @@ public class GridManager : MonoBehaviour
         grid.StartPos = new Vector2Int(-1, -1);
         grid.GoalPos = new Vector2Int(-1, -1);
 
-        RemoveOldPath();
+        RemovePath();
 
     }
 
-    public void RemoveOldPath()
+    public void RemovePath()
     {
         foreach (Cell cell in visitedCellList)
         {

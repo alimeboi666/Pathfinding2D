@@ -66,7 +66,6 @@ public class GameManager : Singleton<GameManager>
     }
     public void StartPathfinding()
     {
-        gridManager.RemoveOldPath();
         StartCoroutine(Pathfinding.GetPathfinding(algorithm).FindPath(gridManager, delayTime, (path) =>
         {
             if (path != null)

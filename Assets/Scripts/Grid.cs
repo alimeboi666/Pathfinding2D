@@ -7,7 +7,6 @@ public class Grid
     private int[,] map;
     private Vector2Int startPos = new Vector2Int(-1, -1);
     private Vector2Int goalPos = new Vector2Int(-1, -1);
-    private float ratioProp;
 
     public int Width => width;
     public int Height => height;
@@ -23,11 +22,10 @@ public class Grid
         set => goalPos = value;
     }
 
-    public Grid(int width, int height, float ratio)
+    public Grid(int width, int height)
     {
         this.width = width;
         this.height = height;
-        ratioProp = ratio;
         map = new int[width, height];
     }
 
@@ -37,7 +35,7 @@ public class Grid
         {
             for (int y = 0; y < height; y++)
             {
-                map[x, y] = Random.value < ratioProp ? 1 : 0; 
+                map[x, y] = Random.value < 0.3f ? 1 : 0; 
             }
         }
 

@@ -1737,7 +1737,6 @@ MonoBehaviour:
   height: 20
   spacing: 0.1
   cellSize: 1
-  ratioProp: 0.3
   cellPrefab: {fileID: -5127105636397707945, guid: 897de91bc69609d489b3987daeb1a666, type: 3}
   gridParent: {fileID: 1033000494}
   gridConfig:
@@ -1844,6 +1843,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4e950036c28fca43b993d764328b12e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 0}
+  defaultSprite: {fileID: 21300000, guid: 72e17e8197bf8734682da01822d02db6, type: 3}
+  pickSprite: {fileID: 21300000, guid: 8a77b27e99e46f9448b63a6a3affe9c3, type: 3}
+  pickTime: 0.3
 --- !u!1 &1125102625
 GameObject:
   m_ObjectHideFlags: 0
@@ -2214,6 +2217,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eef284ce866b4f44805514498bfc07b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  modelCollider: {fileID: 0}
+  joints: []
+  moveTime: 0
+  isPick: 0
+  model: {fileID: 1059072206}
 --- !u!58 &1190413977
 CircleCollider2D:
   m_ObjectHideFlags: 0
