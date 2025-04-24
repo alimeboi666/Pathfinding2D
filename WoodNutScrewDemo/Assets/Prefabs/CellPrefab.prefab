@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2031762463787229369}
   - component: {fileID: 1934840885850206550}
-  - component: {fileID: 8951557939742144980}
   - component: {fileID: 8334852169502304862}
+  - component: {fileID: -5127105636397707945}
   m_Layer: 0
   m_Name: CellPrefab
   m_TagString: Untagged
@@ -86,21 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8951557939742144980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2549426941588493337}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bce2c9b106988a040856340d0543a376, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsSelected: 0
-  colorStart: {r: 1, g: 0, b: 0, a: 1}
-  colorGoal: {r: 0, g: 1, b: 0, a: 1}
 --- !u!61 &8334852169502304862
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -146,3 +131,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-5127105636397707945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2549426941588493337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bce2c9b106988a040856340d0543a376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsSelected: 0
+  colorStart: {r: 0, g: 1, b: 0, a: 1}
+  colorGoal: {r: 1, g: 0, b: 0, a: 1}

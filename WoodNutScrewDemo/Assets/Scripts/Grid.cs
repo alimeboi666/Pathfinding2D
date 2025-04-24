@@ -5,8 +5,8 @@ public class Grid
     private int width;
     private int height;
     private int[,] map;
-    private Vector2Int startPos;
-    private Vector2Int goalPos;
+    private Vector2Int startPos = new Vector2Int(-1, -1);
+    private Vector2Int goalPos = new Vector2Int(-1, -1);
 
     public int Width => width;
     public int Height => height;
@@ -39,10 +39,10 @@ public class Grid
             }
         }
 
-        startPos = new Vector2Int(0, 0);
-        goalPos = new Vector2Int(width - 1, height - 1);
-        map[startPos.x, startPos.y] = 0;
-        map[goalPos.x, goalPos.y] = 0;
+        //startPos = new Vector2Int(0, 0);
+        //goalPos = new Vector2Int(width - 1, height - 1);
+        //map[startPos.x, startPos.y] = 0;
+        //map[goalPos.x, goalPos.y] = 0;
     }
 
     public bool IsValidPosition(Vector2Int pos)

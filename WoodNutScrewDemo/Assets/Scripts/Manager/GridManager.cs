@@ -35,6 +35,7 @@ public class GridManager : MonoBehaviour
 
     public void Init()
     {
+        CalculateCellSizeToFitScreen();
         grid = new Grid(width, height);
         grid.GenerateRandomMap();
         ResizePoolIfNeeded(); 
@@ -67,15 +68,21 @@ public class GridManager : MonoBehaviour
                 cell.transform.position = new Vector3(x * totalSize, y * totalSize, 0) + origin;
                 cell.transform.localScale = new Vector3(cellSize, cellSize, 1f);
                 cell.gameObject.SetActive(true);
-                cell.Init(x, y);
+
                 activeCells.Add(cell);
                 cellObjects[x, y] = cell;
+
+                int weight = 0;
 
                 SpriteRenderer sr = cell.GetComponent<SpriteRenderer>();
                 if (sr != null)
                 {
                     if (grid.Map[x, y] == 1)
+                    {
+                        weight = 1;
                         sr.color = gridConfig.WallColor;
+                    }
+                                   
                     else if (x == grid.StartPos.x && y == grid.StartPos.y)
                         sr.color = gridConfig.StartColor;
                     else if (x == grid.GoalPos.x && y == grid.GoalPos.y)
@@ -83,6 +90,8 @@ public class GridManager : MonoBehaviour
                     else
                         sr.color = gridConfig.EmptyColor;
                 }
+
+                cell.Init(x, y, weight);
             }
         }
     }
@@ -153,7 +162,16 @@ public class GridManager : MonoBehaviour
 
     public void ResetGrid()
     {
-        foreach(Cell cell in visitedCellList)
+        grid.StartPos = new Vector2Int(-1, -1);
+        grid.GoalPos = new Vector2Int(-1, -1);
+
+        RemovePath();
+
+    }
+
+    public void RemovePath()
+    {
+        foreach (Cell cell in visitedCellList)
         {
             SpriteRenderer sr = cell.GetComponent<SpriteRenderer>();
             sr.color = gridConfig.EmptyColor;
@@ -188,6 +206,23 @@ public class GridManager : MonoBehaviour
         int y = Mathf.FloorToInt(localPos.y / totalSize);
 
         return new Vector2Int(x, y);
+    }
+
+
+    private void CalculateCellSizeToFitScreen()
+    {
+        Camera cam = Camera.main;
+
+        float screenHeight = 2f * cam.orthographicSize;
+        float screenWidth = screenHeight * cam.aspect * 0.9f;
+
+        float totalSpacingX = spacing * (width - 1);
+        float totalSpacingY = spacing * (height - 1);
+
+        float maxCellWidth = (screenWidth - totalSpacingX) / width;
+        float maxCellHeight = (screenHeight - totalSpacingY) / height;
+
+        cellSize = Mathf.Min(maxCellWidth, maxCellHeight);
     }
 
 }
