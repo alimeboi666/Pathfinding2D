@@ -165,11 +165,11 @@ public class GridManager : MonoBehaviour
         grid.StartPos = new Vector2Int(-1, -1);
         grid.GoalPos = new Vector2Int(-1, -1);
 
-        RemovePath();
+        RemoveOldPath();
 
     }
 
-    public void RemovePath()
+    public void RemoveOldPath()
     {
         foreach (Cell cell in visitedCellList)
         {
