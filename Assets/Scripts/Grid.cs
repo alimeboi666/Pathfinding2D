@@ -7,6 +7,7 @@ public class Grid
     private int[,] map;
     private Vector2Int startPos = new Vector2Int(-1, -1);
     private Vector2Int goalPos = new Vector2Int(-1, -1);
+    private float weight;
 
     public int Width => width;
     public int Height => height;
@@ -22,11 +23,12 @@ public class Grid
         set => goalPos = value;
     }
 
-    public Grid(int width, int height)
+    public Grid(int width, int height, float num)
     {
         this.width = width;
         this.height = height;
         map = new int[width, height];
+        weight = num;
     }
 
     public void GenerateRandomMap()
@@ -35,7 +37,7 @@ public class Grid
         {
             for (int y = 0; y < height; y++)
             {
-                map[x, y] = Random.value < 0.3f ? 1 : 0; 
+                map[x, y] = Random.value < weight ? 1 : 0; 
             }
         }
 

@@ -1699,6 +1699,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1033000494}
   - component: {fileID: 1033000495}
+  - component: {fileID: 1033000496}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -1739,6 +1740,7 @@ MonoBehaviour:
   cellSize: 1
   cellPrefab: {fileID: -5127105636397707945, guid: 897de91bc69609d489b3987daeb1a666, type: 3}
   gridParent: {fileID: 1033000494}
+  ratioProp: 0.3
   gridConfig:
     <EmptyColor>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
     <WallColor>k__BackingField: {r: 0.38679248, g: 0.38679248, b: 0.38679248, a: 1}
@@ -1746,6 +1748,22 @@ MonoBehaviour:
     <GoalColor>k__BackingField: {r: 1, g: 0, b: 0, a: 1}
     <PathColor>k__BackingField: {r: 1, g: 0.9240314, b: 0, a: 1}
     <VisitedColor>k__BackingField: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 1}
+--- !u!114 &1033000496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033000492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87b272733ac197a4ab503f854335d1b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: df8aa60299050c647ac5298651c8599e, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1059072203
 GameObject:
   m_ObjectHideFlags: 0
@@ -1843,10 +1861,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4e950036c28fca43b993d764328b12e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 0}
-  defaultSprite: {fileID: 21300000, guid: 72e17e8197bf8734682da01822d02db6, type: 3}
-  pickSprite: {fileID: 21300000, guid: 8a77b27e99e46f9448b63a6a3affe9c3, type: 3}
-  pickTime: 0.3
 --- !u!1 &1125102625
 GameObject:
   m_ObjectHideFlags: 0
@@ -2217,11 +2231,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eef284ce866b4f44805514498bfc07b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  modelCollider: {fileID: 0}
-  joints: []
-  moveTime: 0
-  isPick: 0
-  model: {fileID: 1059072206}
 --- !u!58 &1190413977
 CircleCollider2D:
   m_ObjectHideFlags: 0

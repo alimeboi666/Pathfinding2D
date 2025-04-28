@@ -12,7 +12,7 @@ public class GridManager : MonoBehaviour
     [Range(0, 2), SerializeField] private float cellSize = 0.1f;
     [SerializeField] private Cell cellPrefab;
     [SerializeField] private Transform gridParent;
-    
+    [Range(0, 1), SerializeField] private float ratioProp;
     
     
     private Grid grid;
@@ -36,7 +36,7 @@ public class GridManager : MonoBehaviour
     public void Init()
     {
         CalculateCellSizeToFitScreen();
-        grid = new Grid(width, height);
+        grid = new Grid(width, height, ratioProp);
         grid.GenerateRandomMap();
         ResizePoolIfNeeded(); 
         cellObjects = new Cell[width, height];
